@@ -23,7 +23,7 @@ export const fetchGithubDiscussionCategories = async (owner: string, repo: strin
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer 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`,
+            'Authorization': `Bearer {token_here}`,
         },
         body: JSON.stringify({
             query: `
@@ -48,7 +48,7 @@ export const fetchGithubDiscussionCategories = async (owner: string, repo: strin
 };
 
 export const getGithubDiscussions = async (owner, repo) => {
-    const token = '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';
+    const token = '';
     const query = `
       query {
         repository(owner: "${owner}", name: "${repo}") {
