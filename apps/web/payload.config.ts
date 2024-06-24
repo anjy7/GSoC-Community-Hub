@@ -1,3 +1,4 @@
+import Navbar from "@repo/npm-payload";
 import path from 'path'
 // import { postgresAdapter } from '@payloadcms/db-postgres'
 // import { en } from 'payload/i18n/en'
@@ -7,14 +8,14 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { buildConfig } from 'payload/config'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
-
+import  {EventsSchema}  from "@palanikannan1437/events";
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
   //editor: slateEditor({}),
   editor: lexicalEditor(),
-  collections: [
+  collections: [EventsSchema,
     {
       slug: 'users',
       auth: true,

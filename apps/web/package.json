@@ -18,6 +18,7 @@
     "@palanikannan1437/rc4-stackoverflow": "workspace:*",
     "@palanikannan1437/rc4-ui": "workspace:*",
     "@palanikannan1437/rc4community-auth": "workspace:*",
+    "@palanikannan1437/events": "workspace:*",
     "@palanikannan1437/rc4community-hackernews": "workspace:*",
     "@palanikannan1437/rc4community-navbar": "workspace:*",
     "@palanikannan1437/rc4community-navbar-demo": "workspace:*",

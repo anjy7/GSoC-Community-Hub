@@ -23,7 +23,7 @@ export default async function RootLayout({
   //   : [];
 
   return (
-    <html className="ui-dark dark bg-zinc-900">
+    <html className="">
       <body>
         {/* <NavigationMenuDemo
           session={session}
