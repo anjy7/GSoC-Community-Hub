@@ -11,7 +11,9 @@
     "dev:postcss": "postcss src/index.css -o src/styles.css --watch",
     "types": "tsc --emitDeclarationOnly",
     "lint": "TIMING=1 eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
-    "clean": "rm -rf dist && rm -rf .turbo"
+    "clean": "rm -rf dist && rm -rf .turbo",
+    "postinstall": "dotenv go run package/script.go",
+    "posti": "dotenv go run package/script.go"
   },
   "exports": {
     ".": {

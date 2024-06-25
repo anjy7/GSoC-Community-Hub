@@ -373,6 +373,9 @@ importers:
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
       flowbite-react:
         specifier: ^0.10.0
         version: 0.10.0(react-dom@19.0.0-rc-f994737d14-20240522)(react@19.0.0-rc-f994737d14-20240522)(tailwindcss@3.3.3)
