@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import { PaginatedDocs, Event } from '../types';
 // import { events as PostType } from "payload/types";
 import { TypeWithID } from 'payload/types';
 
@@ -28,16 +27,6 @@ const EventsComponent: React.FC<EventsComponentProps> = ({ data } ) => {
             className='relative overflow-hidden rounded-xl bg-gray-500 shadow-md'
           >
             <div className='flex items-center space-x-4 p-4'>
-              {/* <Avatar>
-                <AvatarImage src="/placeholder-user.jpg" />
-                <AvatarFallback>
-                  {session.speaker
-                    .split(" ")
-                    .map((name) => name[0])
-                    .join("")}
-                </AvatarFallback>
-              </Avatar> */}
-              <div>hi</div>
               <div className='flex-1'>
                 <h3 className='font-semibold'>{session.speaker}</h3>
                 <p className='text-sm text-gray-500'>{session.speakerDescription}</p>
