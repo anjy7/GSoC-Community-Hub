@@ -1,10 +1,12 @@
 'use client';
 import React from 'react';
 import { PaginatedDocs, Event } from '../types';
+// import { events as PostType } from "payload/types";
+import { TypeWithID } from 'payload/types';
 
 
 interface EventsComponentProps {
-  data: PaginatedDocs<Event>;
+  data: any;
 }
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
@@ -20,7 +22,7 @@ const EventsComponent: React.FC<EventsComponentProps> = ({ data } ) => {
         <button className='font-semibold text-blue-600'>Speakers</button>
       </div>
       <div className='relative grid grid-cols-1 gap-8'>
-        {data.docs.map((session, index) => (
+        {data.docs.map((session: any, index: any) => (
           <div
             key={index}
             className='relative overflow-hidden rounded-xl bg-gray-500 shadow-md'
