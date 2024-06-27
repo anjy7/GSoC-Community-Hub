@@ -3,7 +3,6 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Flame, HelpCircle } from "lucide-react";
 import { StackOverflowCard, Tabs, TabsContent, TabsList, TabsTrigger } from './components';
 import { LineChart } from "lucide-react";
-import { BadgeIcon } from "@radix-ui/react-icons";
 function StackOverflowComponent({ questions }) {
     const { newPosts, hotPosts, topPosts, unansweredPosts } = questions;
     return /*#__PURE__*/ _jsx("div", {
@@ -46,14 +45,9 @@ function StackOverflowComponent({ questions }) {
                                         "Hot"
                                     ]
                                 }),
-                                /*#__PURE__*/ _jsxs(TabsTrigger, {
+                                /*#__PURE__*/ _jsx(TabsTrigger, {
                                     value: "new",
-                                    children: [
-                                        /*#__PURE__*/ _jsx(BadgeIcon, {
-                                            className: "mr-2"
-                                        }),
-                                        "New"
-                                    ]
+                                    children: "New"
                                 })
                             ]
                         }),

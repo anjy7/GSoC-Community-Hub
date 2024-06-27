@@ -4,7 +4,7 @@ import { Flame, HelpCircle } from "lucide-react";
 
 import { StackOverflowCard, Tabs, TabsContent, TabsList, TabsTrigger } from './components';
 import { LineChart } from "lucide-react";
-import { BadgeIcon } from "@radix-ui/react-icons";
+// import { BadgeIcon } from "@radix-ui/react-icons";
 import { questionsType } from "../api";
 
 
@@ -30,7 +30,7 @@ function StackOverflowComponent({ questions }: { questions: questionsType }) {
                                 Hot
                             </TabsTrigger>
                             <TabsTrigger value="new">
-                                <BadgeIcon className="mr-2" />
+                                {/* <BadgeIcon className="mr-2" /> */}
                                 New
                             </TabsTrigger>
                         </TabsList>

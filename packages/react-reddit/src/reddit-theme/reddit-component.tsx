@@ -2,7 +2,7 @@ import React from 'react'
 import { Flame } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components';
 import { LineChart } from "lucide-react";
-import { BadgeIcon } from "@radix-ui/react-icons";
+// import { BadgeIcon } from "@radix-ui/react-icons";
 import { RedditCard } from './reddit-card';
 import { RedditPosts } from '../api';
 
@@ -20,7 +20,7 @@ function RedditComponent({ posts }: { posts: RedditPosts }) {
                     Hot
                 </TabsTrigger>
                 <TabsTrigger value="new">
-                    <BadgeIcon className="mr-2" />
+                    {/* <BadgeIcon className="mr-2" /> */}
                     New</TabsTrigger>
             </TabsList>
             <TabsContent value="top">

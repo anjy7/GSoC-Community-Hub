@@ -3,7 +3,7 @@ import React from 'react';
 import { Flame } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components';
 import { LineChart } from "lucide-react";
-import { BadgeIcon } from "@radix-ui/react-icons";
+// import { BadgeIcon } from "@radix-ui/react-icons";
 import { RedditCard } from './reddit-card';
 function RedditComponent({ posts }) {
     const { newPosts, hotPosts, topPosts } = posts;
@@ -34,14 +34,9 @@ function RedditComponent({ posts }) {
                                 "Hot"
                             ]
                         }),
-                        /*#__PURE__*/ _jsxs(TabsTrigger, {
+                        /*#__PURE__*/ _jsx(TabsTrigger, {
                             value: "new",
-                            children: [
-                                /*#__PURE__*/ _jsx(BadgeIcon, {
-                                    className: "mr-2"
-                                }),
-                                "New"
-                            ]
+                            children: "New"
                         })
                     ]
                 }),
