@@ -1,5 +1,5 @@
 {
-  "name": "@anjy7/navbar",
+  "name": "@anjy7/navbar-cms",
   "version": "0.0.5",
   "repository": "",
   "author": "",
@@ -67,6 +67,8 @@
     "@lexical/rich-text": "0.16.0",
     "@lexical/selection": "0.16.0",
     "@lexical/utils": "0.16.0",
+    "@material-tailwind/react": "^2.1.4",
+    "@heroicons/react": "^2.0.18",
     "@payloadcms/db-mongodb": "3.0.0-beta.55",
     "@payloadcms/db-postgres": "3.0.0-beta.55",
     "@payloadcms/next": "3.0.0-beta.55",
@@ -88,7 +90,10 @@
     "react-vertical-timeline-component": "^3.6.0",
     "rsuite": "^5.64.1",
     "swr": "^2.2.0",
-    "tailwind-merge": "1.14.0"
+    "tailwind-merge": "1.14.0",
+    "@radix-ui/react-navigation-menu": "^1.1.1",
+    "qs": "^6.11.0",
+    "tailwindcss-animate": "^1.0.5"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.62",

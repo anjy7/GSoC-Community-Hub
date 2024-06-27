@@ -17,3 +17,6 @@ export { EventsSchema } from './schema';
 
 import "./styles.css"
 export * from './events.js'
+
+export * from "./ui/Navbar";
+export * from "./ui/NavDemo";

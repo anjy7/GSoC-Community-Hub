@@ -8,7 +8,7 @@ import {
     TabsTrigger,
 } from "@/components/ui/tabs"
 import { LineChart } from "lucide-react";
-import { BadgeIcon  } from "@radix-ui/react-icons";
+// import { BadgeIcon  } from "@radix-ui/react-icons";
 
 function StackOverflowComponent({ questions }) {
     const { newPosts, hotPosts, topPosts, unansweredPosts } = questions
@@ -31,7 +31,7 @@ function StackOverflowComponent({ questions }) {
                             Hot
                         </TabsTrigger>
                         <TabsTrigger value="new">
-                            <BadgeIcon className="mr-2" />
+                            {/* <BadgeIcon className="mr-2" /> */}
                             New
                         </TabsTrigger>
                     </TabsList>

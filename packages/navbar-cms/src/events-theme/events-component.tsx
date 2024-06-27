@@ -1,109 +1,123 @@
-'use client';
-import React from 'react';
-// import { events as PostType } from "payload/types";
-import { TypeWithID } from 'payload/types';
+/**
+ * v0 by Vercel.
+ * @see https://v0.dev/t/LnVyyJMfS2y
+ * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
+ */
+import Link from "next/link"
+import { NavigationMenu, NavigationMenuList, NavigationMenuLink, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent } from "./navigation-menu"
 
-
-interface EventsComponentProps {
-  data: any;
-}
-
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  className?: string;
-}
-
-const EventsComponent: React.FC<EventsComponentProps> = ({ data } ) => {
+export default function Component() {
   return (
-    <div className='mx-auto max-w-5xl p-4'>
-      <div className='mb-4 flex justify-between border-b pb-2'>
-        <button className='font-semibold text-blue-600'>Overview</button>
-        <button className='font-semibold text-blue-600'>Sessions</button>
-        <button className='font-semibold text-blue-600'>Speakers</button>
-      </div>
-      <div className='relative grid grid-cols-1 gap-8'>
-        {data.docs.map((session: any, index: any) => (
-          <div
-            key={index}
-            className='relative overflow-hidden rounded-xl bg-gray-500 shadow-md'
-          >
-            <div className='flex items-center space-x-4 p-4'>
-              <div className='flex-1'>
-                <h3 className='font-semibold'>{session.speaker}</h3>
-                <p className='text-sm text-gray-500'>{session.speakerDescription}</p>
+    <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6">
+      <Link href="#" className="mr-6 flex items-center" prefetch={false}>
+        <MountainIcon className="h-6 w-6" />
+        <span className="sr-only">Acme Inc</span>
+      </Link>
+      <NavigationMenu className="ml-auto hidden lg:flex">
+        <NavigationMenuList>
+          <NavigationMenuLink asChild>
+            <Link
+              href="#"
+              className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+              prefetch={false}
+            >
+              Home
+            </Link>
+          </NavigationMenuLink>
+          <NavigationMenuLink asChild>
+            <Link
+              href="#"
+              className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+              prefetch={false}
+            >
+              About
+            </Link>
+          </NavigationMenuLink>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <div className="grid w-[400px] p-2">
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="#"
+                    className="group grid h-auto w-full items-center justify-start gap-1 rounded-md bg-background p-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                    prefetch={false}
+                  >
+                    <div className="text-sm font-medium leading-none group-hover:underline">Web Design</div>
+                    <div className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                      Crafting beautiful and responsive websites.
+                    </div>
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="#"
+                    className="group grid h-auto w-full items-center justify-start gap-1 rounded-md bg-background p-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                    prefetch={false}
+                  >
+                    <div className="text-sm font-medium leading-none group-hover:underline">Web Development</div>
+                    <div className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                      Building custom web applications.
+                    </div>
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="#"
+                    className="group grid h-auto w-full items-center justify-start gap-1 rounded-md bg-background p-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                    prefetch={false}
+                  >
+                    <div className="text-sm font-medium leading-none group-hover:underline">Digital Marketing</div>
+                    <div className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                      Driving growth through online channels.
+                    </div>
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="#"
+                    className="group grid h-auto w-full items-center justify-start gap-1 rounded-md bg-background p-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                    prefetch={false}
+                  >
+                    <div className="text-sm font-medium leading-none group-hover:underline">SEO</div>
+                    <div className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                      Optimizing your online presence for search.
+                    </div>
+                  </Link>
+                </NavigationMenuLink>
               </div>
-            </div>
-            <div className='border-t p-4'>
-              <h4 className='font-semibold'>{session.title}</h4>
-              <div className='mt-2 flex items-center justify-between'>
-                <div className='flex items-center space-x-2'>
-                  <ClockIcon className='h-5 w-5 text-gray-500' />
-                  <span className='text-gray-500'>
-                    {session.start} - {session.end}
-                  </span>
-                </div>
-                <div className='flex items-center space-x-2'>
-                  <ClockIcon className='h-5 w-5 text-gray-500' />
-                  <span className='text-gray-500'>{session.duration} min</span>
-                </div>
-              </div>
-              <div className='mt-2 flex items-center space-x-2'>
-                <YoutubeIcon className='h-6 w-6 text-red-600' />
-                <span className='text-blue-600'>{session.youtube}</span>
-              </div>
-            </div>
-            {index !== 0 && (
-              <div className='absolute left-0 top-0 h-full w-1 translate-x-[-50%] transform bg-gray-200' />
-            )}
-            <div className='absolute left-0 top-0 h-5 w-5 -translate-y-[50%] translate-x-[-50%] transform rounded-full border border-gray-200 bg-white' />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuLink asChild>
+            <Link
+              href="#"
+              className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+              prefetch={false}
+            >
+              Contact
+            </Link>
+          </NavigationMenuLink>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </header>
+  )
+}
 
-export default EventsComponent;
-
-function ClockIcon(props: IconProps) {
+function MountainIcon(props) {
   return (
     <svg
       {...props}
-      xmlns='http://www.w3.org/2000/svg'
-      width='24'
-      height='24'
-      viewBox='0 0 24 24'
-      fill='none'
-      stroke='currentColor'
-      strokeWidth='2'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
-      <circle
-        cx='12'
-        cy='12'
-        r='10'
-      />
-      <polyline points='12 6 12 12 16 14' />
+      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
     </svg>
-  );
-}
-
-function YoutubeIcon(props: IconProps) {
-  return (
-    <svg
-      {...props}
-      xmlns='http://www.w3.org/2000/svg'
-      width='24'
-      height='24'
-      viewBox='0 0 24 24'
-      fill='none'
-      stroke='currentColor'
-      strokeWidth='2'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-    >
-      <path d='M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17' />
-      <path d='m10 15 5-3-5-3z' />
-    </svg>
-  );
+  )
 }
