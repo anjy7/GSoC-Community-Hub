@@ -1,21 +1,26 @@
-import Navbar from "@repo/npm-payload";
-import path from 'path'
+import Navbar from '@repo/npm-payload';
+import path from 'path';
 // import { postgresAdapter } from '@payloadcms/db-postgres'
 // import { en } from 'payload/i18n/en'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { lexicalEditor } from '@payloadcms/richtext-lexical';
 //import { slateEditor } from '@payloadcms/richtext-slate'
-import { mongooseAdapter } from '@payloadcms/db-mongodb'
-import { buildConfig } from 'payload/config'
-import sharp from 'sharp'
-import { fileURLToPath } from 'url'
-import  {EventsSchema}  from "@palanikannan1437/events";
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
+import { mongooseAdapter } from '@payloadcms/db-mongodb';
+import { buildConfig } from 'payload';
+import sharp from 'sharp';
+import { fileURLToPath } from 'url';
+import { EventsSchema } from '@anjy7/events-cms';
+
+import { Header } from './app/header'
+
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 
 export default buildConfig({
   //editor: slateEditor({}),
   editor: lexicalEditor(),
-  collections: [EventsSchema,
+  globals: [Header],
+  collections: [
+    EventsSchema,
     {
       slug: 'users',
       auth: true,
@@ -84,7 +89,7 @@ export default buildConfig({
     const existingUsers = await payload.find({
       collection: 'users',
       limit: 1,
-    })
+    });
 
     if (existingUsers.docs.length === 0) {
       await payload.create({
@@ -93,7 +98,7 @@ export default buildConfig({
           email: 'dev@payloadcms.com',
           password: 'test',
         },
-      })
+      });
     }
   },
   // Sharp is now an optional dependency -
@@ -103,4 +108,4 @@ export default buildConfig({
   // This is temporary - we may make an adapter pattern
   // for this before reaching 3.0 stable
   sharp,
-})
+});
