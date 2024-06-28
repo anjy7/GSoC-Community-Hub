@@ -26,6 +26,7 @@
     "@palanikannan1437/react-tweet": "workspace:*",
     "@anjy7/events-cms": "workspace:*",
     "@anjy7/navbar-cms": "workspace:*",
+    "@anjy7/p2p":"workspace:*",
     "@repo/npm-payload": "workspace:*",
     "@radix-ui/react-dropdown-menu": "^2.0.5",
     "@radix-ui/react-icons": "^1.2.0",
