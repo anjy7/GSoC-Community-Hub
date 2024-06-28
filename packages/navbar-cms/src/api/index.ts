@@ -1,1 +1,1 @@
-export * from './get-events.js'
+export * from './get-navigation.js'

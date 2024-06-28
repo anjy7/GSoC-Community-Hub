@@ -9,8 +9,7 @@ import { buildConfig } from 'payload';
 import sharp from 'sharp';
 import { fileURLToPath } from 'url';
 import { EventsSchema } from '@anjy7/events-cms';
-
-import { Header } from './app/header'
+import { NavbarSchema } from '@anjy7/navbar-cms'
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -18,7 +17,7 @@ const dirname = path.dirname(filename);
 export default buildConfig({
   //editor: slateEditor({}),
   editor: lexicalEditor(),
-  globals: [Header],
+  globals: [NavbarSchema],
   collections: [
     EventsSchema,
     {

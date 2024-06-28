@@ -41,25 +41,17 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
             type: 'radio',
             options: [
               {
-                label: 'Custom URL',
-                value: 'custom',
+                label: 'link',
+                value: 'link',
+              },
+              {
+                label: 'dropDown',
+                value: 'dropdown',
               },
             ],
-            defaultValue: 'reference',
+            defaultValue: 'link',
             admin: {
               layout: 'horizontal',
-              width: '50%',
-            },
-          },
-          {
-            name: 'newTab',
-            label: 'Open in new tab',
-            type: 'checkbox',
-            admin: {
-              width: '50%',
-              style: {
-                alignSelf: 'flex-end',
-              },
             },
           },
         ],
@@ -69,13 +61,38 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
 
   const linkTypes: Field[] = [
     {
-      name: 'url',
-      label: 'Custom URL',
+      name: 'link',
+      label: 'url',
       type: 'text',
       required: true,
       admin: {
-        condition: (_, siblingData) => siblingData?.type === 'custom',
+        condition: (_, siblingData) => siblingData?.type === 'link',
       },
+    },
+    {
+      name: 'dropdown',
+      label: 'dropdown',
+      type: 'array',
+      minRows: 2,
+      maxRows: 10,
+      admin: {
+        condition: (_, siblingData) => siblingData?.type === 'dropdown',
+      },
+      fields: [
+        // required
+        {
+          name: 'url',
+          label: "url",
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'label',
+          label: 'label',
+          type: 'text',
+          required: true,
+        }
+      ],
     },
   ]
 
@@ -100,6 +117,7 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
           admin: {
             width: '50%',
           },
+          // layout: 'horizontal',
         },
       ],
     })

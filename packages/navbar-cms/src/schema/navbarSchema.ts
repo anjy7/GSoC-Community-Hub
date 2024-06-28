@@ -2,8 +2,8 @@ import type { GlobalConfig } from 'payload'
 
 import link from './link'
 
-export const Header: GlobalConfig = {
-  slug: 'header',
+export const NavbarSchema: GlobalConfig = {
+  slug: 'navbar',
   access: {
     read: () => true,
   },
