@@ -1,9 +1,7 @@
 // "use client"
 // import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Events } from '@anjy7/events-cms';
-import {Header} from "@anjy7/navbar-cms"
-import Navbar from "./Navbar"
-import { Button } from '@/components/ui/button';
+import {Navbar} from "@anjy7/navbar-cms"
 import Filter from './filter';
 // import { useState } from 'react';
 // import configPromise from '@payload-config';
