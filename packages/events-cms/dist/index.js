@@ -1,3 +1,2 @@
 export { EventsSchema } from './schema';
-
-export * from './events.js'
+export * from './events.js';
