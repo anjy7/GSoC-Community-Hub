@@ -10,8 +10,6 @@
     "build": "microbundle",
     "dev": "microbundle watch",
     "update": "dotenv go run package/script.go",
-    "postinstall": "dotenv go run package/script.go",
-    "posti": "dotenv go run package/script.go",
     "root": "node package/test.js",
     "exp": "node express/seed.js",
     "my-script": "bash scripts/getenv.sh"
