@@ -22,13 +22,16 @@ export const CenterVariant = ({ navData, navItems, logo, logoSec }: Props) => {
                             {navData.brandLogo.data.attributes.logoText}
                         </span>
                     </a>
-                    <nav className="nav__items--center">
+                    <nav className="nav__items--center"
+                    >
+                        
                         <NavigationMenu>
                             <NavigationMenuList>
                                 {navItems.map((navItem) => {
                                     if (navItem.show) {
                                         if (navItem.item.attributes.type === "variant1") {
                                             return (
+                                                
                                                 <NavigationMenuItem key={navItem.item.id + "variant1"}>
                                                     <NavigationMenuTrigger>
                                                         {navItem.item.attributes.title}

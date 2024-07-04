@@ -2,6 +2,10 @@ export const EventsSchema = {
     slug: 'events',
     fields: [
         {
+            name: 'event',
+            type: 'text'
+        },
+        {
             name: 'speaker',
             type: 'text'
         },
@@ -28,6 +32,10 @@ export const EventsSchema = {
         {
             name: 'youtube',
             type: 'text'
+        },
+        {
+            name: 'year',
+            type: 'number'
         }
     ]
 }; // export default EventsSchema;

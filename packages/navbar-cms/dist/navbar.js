@@ -1,14 +1,22 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { Suspense } from 'react';
-import { getLinks } from './api/index.js';
-import NavigationMenuDemo from './navigation-theme/navigation-component.js';
-const EventsContent = async ()=>{
-    const links = await getLinks();
-    console.log("==============", links.navItems);
-    return /*#__PURE__*/ _jsx(NavigationMenuDemo, {
-        data: links.navItems
+// import NavigationMenuDemo from './navigation-theme/navigation-component.js'
+// import {NavDemo} from './ui/NavDemo.js'
+import NavigationBoot from './navigation-theme/navigation-bootstrap.js';
+const EventsContent = async ({ data, container })=>{
+    // const links = await getLinks()
+    // console.log("==============",links.navItems)
+    return /*#__PURE__*/ _jsx(NavigationBoot, {
+        data: data,
+        container: container
+    });
+// return null;
+};
+export const NavigationMenuDemo = ({ data, container })=>{
+    return /*#__PURE__*/ _jsx(Suspense, {
+        children: /*#__PURE__*/ _jsx(EventsContent, {
+            container: container,
+            data: data
+        })
     });
 };
-export const Navbar = ({})=>/*#__PURE__*/ _jsx(Suspense, {
-        children: /*#__PURE__*/ _jsx(EventsContent, {})
-    });

@@ -4,6 +4,10 @@ export const EventsSchema : CollectionConfig = ({
         slug: 'events',
         fields:[
           {
+            name:'event',
+            type:'text'
+          },
+          {
             name:'speaker',
             type:'text'
           },
@@ -25,6 +29,10 @@ export const EventsSchema : CollectionConfig = ({
           },{
             name:'youtube',
             type:'text'
+          },
+          {
+            name:'year',
+            type:'number'
           }
         ]
 });
