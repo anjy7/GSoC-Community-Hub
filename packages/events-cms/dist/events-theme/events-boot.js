@@ -7,7 +7,6 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const EventsComponent = ({ data })=>{
-    console.log('+++++++', data);
     return /*#__PURE__*/ _jsxs("div", {
         style: {
             paddingLeft: '1rem',

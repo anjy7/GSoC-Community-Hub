@@ -11,22 +11,39 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
 }
 
-const EventsComponent = ({ data }) => {
-  console.log('+++++++', data);
+interface Session {
+  speaker: string;
+  speakerDescription: string;
+  title: string;
+  start: string;
+  end: string;
+  duration: string;
+  youtube: string;
+}
+
+interface EventsComponentProps {
+  data: Session[];
+}
+
+const EventsComponent: React.FC<EventsComponentProps> = ({ data }) => {
   return (
-    <div style={{ paddingLeft:'1rem', paddingRight:'1rem' }}>
-       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+    <div style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
         <ButtonGroup>
           <Button>2023</Button>
           <Button>2022</Button>
           <Button>2021</Button>
-          <DropdownButton as={ButtonGroup} title="years" id="bg-nested-dropdown">
-            <Dropdown.Item eventKey="1">2020</Dropdown.Item>
-            <Dropdown.Item eventKey="2">2019</Dropdown.Item>
+          <DropdownButton
+            as={ButtonGroup}
+            title='years'
+            id='bg-nested-dropdown'
+          >
+            <Dropdown.Item eventKey='1'>2020</Dropdown.Item>
+            <Dropdown.Item eventKey='2'>2019</Dropdown.Item>
           </DropdownButton>
         </ButtonGroup>
       </div>
-      {data.map((session: any, index: any) => (
+      {data.map((session: Session, index: number) => (
         <div>
           <Card style={{ margin: 'auto', marginTop: '2rem', maxWidth: '38rem' }}>
             <Card.Header>
