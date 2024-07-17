@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
@@ -26,24 +27,23 @@ interface EventsComponentProps {
 }
 
 const EventsComponent: React.FC<EventsComponentProps> = ({ data }) => {
+
+  
+  const years = Array.from(new Set(data.map((session) => session.year))).sort((a, b) => b - a);
+  const [selectedYear, setSelectedYear] = useState<number | null>(years[0]);
+
+  const filteredData = selectedYear ? data.filter((session) => session.year === selectedYear) : data;
+
   return (
     <div style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
         <ButtonGroup>
-          <Button>2023</Button>
-          <Button>2022</Button>
-          <Button>2021</Button>
-          <DropdownButton
-            as={ButtonGroup}
-            title='years'
-            id='bg-nested-dropdown'
-          >
-            <Dropdown.Item eventKey='1'>2020</Dropdown.Item>
-            <Dropdown.Item eventKey='2'>2019</Dropdown.Item>
-          </DropdownButton>
+          {years.map((year) => (
+            <Button key={year} onClick={() => setSelectedYear(year)}>{year}</Button>
+          ))}
         </ButtonGroup>
       </div>
-      {data.map((session: Session, index: number) => (
+      {filteredData.map((session: Session, index: number) => (
         <div>
           <Card style={{ margin: 'auto', marginTop: '2rem', maxWidth: '38rem' }}>
             <Card.Header>

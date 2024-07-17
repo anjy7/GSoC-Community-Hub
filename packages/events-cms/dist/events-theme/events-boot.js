@@ -3,10 +3,12 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const EventsComponent = ({ data })=>{
+    const years = Array.from(new Set(data.map((session)=>session.year))).sort((a, b)=>b - a);
+    const [selectedYear, setSelectedYear] = useState(years[0]);
+    const filteredData = selectedYear ? data.filter((session)=>session.year === selectedYear) : data;
     return /*#__PURE__*/ _jsxs("div", {
         style: {
             paddingLeft: '1rem',
@@ -19,36 +21,14 @@ const EventsComponent = ({ data })=>{
                     justifyContent: 'center',
                     marginBottom: '2rem'
                 },
-                children: /*#__PURE__*/ _jsxs(ButtonGroup, {
-                    children: [
-                        /*#__PURE__*/ _jsx(Button, {
-                            children: "2023"
-                        }),
-                        /*#__PURE__*/ _jsx(Button, {
-                            children: "2022"
-                        }),
-                        /*#__PURE__*/ _jsx(Button, {
-                            children: "2021"
-                        }),
-                        /*#__PURE__*/ _jsxs(DropdownButton, {
-                            as: ButtonGroup,
-                            title: "years",
-                            id: "bg-nested-dropdown",
-                            children: [
-                                /*#__PURE__*/ _jsx(Dropdown.Item, {
-                                    eventKey: "1",
-                                    children: "2020"
-                                }),
-                                /*#__PURE__*/ _jsx(Dropdown.Item, {
-                                    eventKey: "2",
-                                    children: "2019"
-                                })
-                            ]
-                        })
-                    ]
+                children: /*#__PURE__*/ _jsx(ButtonGroup, {
+                    children: years.map((year)=>/*#__PURE__*/ _jsx(Button, {
+                            onClick: ()=>setSelectedYear(year),
+                            children: year
+                        }, year))
                 })
             }),
-            data.map((session, index)=>/*#__PURE__*/ _jsx("div", {
+            filteredData.map((session, index)=>/*#__PURE__*/ _jsx("div", {
                     children: /*#__PURE__*/ _jsxs(Card, {
                         style: {
                             margin: 'auto',

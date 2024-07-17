@@ -9,14 +9,14 @@ const navItems = [
     "dropdown": [
       {
         "type": "link",
-        "link": "/events",
-        "label": "GSoC Alumni Summit"
+        "link": "/demo-day",
+        "label": "GSoC Demo Day"
       },
       {
         "type": "link",
         "link": "/events",
-        "label": "GSoC Demo Day"
-      }
+        "label": "GSoC Alumni Summit"
+      },
     ],
     "label": "events"
   },
@@ -26,16 +26,32 @@ const navItems = [
       {
         "type": "link",
         "link": "/events",
-        "label": "AI Workshop"
+        "label": "Open Source AI Club"
+      },
+    ],
+    "label": "meet-ups"
+  },
+  {
+    "type": "dropdown",
+    "dropdown": [
+      {
+        "type": "link",
+        "link": "/events",
+        "label": "Rocket.Chat Apps Workshop"
       },
       {
         "type": "link",
         "link": "/events",
-        "label": "Apps Workshop"
-      }
+        "label": "Prompt Engineering Workshop"
+      },
     ],
-    "label": "workshop"
-  }
+    "label": "workshops"
+  },
+  {
+    "type": "link",
+    "link": "/projects",
+    "label": "projects"
+  },
 ];
 
 export default navItems;
