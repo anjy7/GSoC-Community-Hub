@@ -1,6 +1,6 @@
 // "use client"
 // import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { GsocProjects } from '@anjy7/gsoc-projects';
+import { GsocDemoDay } from '@anjy7/gsoc-demo-day';
 import {NavigationMenuDemo} from "@anjy7/navbar-cms"
 import navItems from "@lib/navigation"
 import events from '@lib/events';
@@ -20,7 +20,7 @@ export default async function Home() {
         <span >Explore the innovative projects showcased by the talented participants of the Google Summer of Code program.</span>
       </h1>
       {/* <Events cms={false} data={events} user={user}/> */}
-      <GsocProjects/>
+      <GsocDemoDay/>
     </>
   );
 }

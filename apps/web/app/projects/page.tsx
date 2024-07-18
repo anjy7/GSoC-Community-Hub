@@ -20,6 +20,7 @@ export default async function Home() {
         <span >All of the projects are open source projects welcoming additional contributors. Please click on links below and start contributing!</span>
       </h1>
       {/* <Events cms={false} data={events} user={user}/> */}
+      <GsocProjects/>
     </>
   );
 }

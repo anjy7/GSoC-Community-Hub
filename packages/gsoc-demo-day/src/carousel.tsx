@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Suspense } from 'react'
 import { getLinks } from './api/index.js'
-import CarouselComponent from './projects-theme/carousel-component.js';
+import CarouselComponent from './demo-day-theme/carousel-component.js';
 
 
 
@@ -17,7 +17,7 @@ const CarouselContent = async ({ cms, data, user }) => {
   return <CarouselComponent/>;
 };
 
-export const GsocProjects = ({ cms, data, user }) => (
+export const GsocDemoDay = ({ cms, data, user }) => (
   <Suspense>
     {/* @ts-ignore: Async components are valid in the app directory */}
     <CarouselContent
