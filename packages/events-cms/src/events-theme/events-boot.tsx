@@ -39,7 +39,9 @@ const EventsComponent: React.FC<EventsComponentProps> = ({ data }) => {
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
         <ButtonGroup>
           {years.map((year) => (
-            <Button key={year} onClick={() => setSelectedYear(year)}>{year}</Button>
+            <Button key={year} onClick={() => setSelectedYear(year)}
+            style={{ backgroundColor: selectedYear === year ? '#0056b3' : '#0d6efd' }}
+            >{year}</Button>
           ))}
         </ButtonGroup>
       </div>

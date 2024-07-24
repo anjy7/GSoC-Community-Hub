@@ -1,58 +1,49 @@
 "use client";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import React from 'react';
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel } from "react-bootstrap";
 import ReactPlayer from "react-player";
-const CarouselComponent = ({})=>{
-    const videoProperties = [
-        {
-            id: 1,
-            title: "Video 1",
-            src: "https://youtu.be/7IKYd8bj57g?si=QsBWwJjBbUKJhQgM",
-            credit: "Video by cottonbro from Pexels"
-        },
-        {
-            id: 2,
-            title: "Video 2",
-            src: "https://youtu.be/5cSzi2wLztw?si=yBuwxngnwrnaLiVJ",
-            credit: "Video by cottonbro from Pexels"
-        },
-        {
-            id: 3,
-            title: "Video 3",
-            src: "https://youtu.be/Nc3cuBDYeD4?si=Zu8c0huMVg5h5f99",
-            credit: "Video by cottonbro from Pexels"
-        }
-    ];
-    return /*#__PURE__*/ _jsx("div", {
-        children: /*#__PURE__*/ _jsx(Carousel, {
-            style: {
-                maxWidth: "40rem",
-                margin: "auto"
-            },
-            children: videoProperties.map((videoObj)=>{
-                return /*#__PURE__*/ _jsxs(Carousel.Item, {
-                    children: [
-                        /*#__PURE__*/ _jsx(ReactPlayer, {
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+const CarouselComponent = ({ data })=>{
+    const years = Array.from(new Set(data.map((session)=>session.year))).sort((a, b)=>b - a);
+    const [selectedYear, setSelectedYear] = useState(years[0]);
+    const filteredData = selectedYear ? data.filter((session)=>session.year === selectedYear) : data;
+    return /*#__PURE__*/ _jsxs("div", {
+        children: [
+            /*#__PURE__*/ _jsx("div", {
+                style: {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    marginBottom: '2rem'
+                },
+                children: /*#__PURE__*/ _jsx(ButtonGroup, {
+                    children: years.map((year)=>/*#__PURE__*/ _jsx(Button, {
+                            onClick: ()=>setSelectedYear(year),
+                            style: {
+                                backgroundColor: selectedYear === year ? '#0056b3' : '#0d6efd'
+                            },
+                            children: year
+                        }, year))
+                })
+            }),
+            /*#__PURE__*/ _jsx(Carousel, {
+                style: {
+                    maxWidth: "40rem",
+                    margin: "auto"
+                },
+                children: filteredData.map((videoObj)=>{
+                    return /*#__PURE__*/ _jsx(Carousel.Item, {
+                        children: /*#__PURE__*/ _jsx(ReactPlayer, {
                             url: videoObj.src,
                             // pip={true}
                             controls: true
-                        }),
-                        /*#__PURE__*/ _jsxs(Carousel.Caption, {
-                            children: [
-                                /*#__PURE__*/ _jsx("h3", {
-                                    children: videoObj.title
-                                }),
-                                /*#__PURE__*/ _jsx("p", {
-                                    children: videoObj.credit
-                                })
-                            ]
                         })
-                    ]
-                }, videoObj.id);
+                    }, videoObj.id);
+                })
             })
-        })
+        ]
     });
 };
 export default CarouselComponent;

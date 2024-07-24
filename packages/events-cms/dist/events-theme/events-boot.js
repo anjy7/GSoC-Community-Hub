@@ -24,6 +24,9 @@ const EventsComponent = ({ data })=>{
                 children: /*#__PURE__*/ _jsx(ButtonGroup, {
                     children: years.map((year)=>/*#__PURE__*/ _jsx(Button, {
                             onClick: ()=>setSelectedYear(year),
+                            style: {
+                                backgroundColor: selectedYear === year ? '#0056b3' : '#0d6efd'
+                            },
                             children: year
                         }, year))
                 })
