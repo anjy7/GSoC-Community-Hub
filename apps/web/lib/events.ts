@@ -12,6 +12,17 @@ const events = [
   },
   {
     event: 'gsoc-alumni-summit2',
+    speaker: 'anjaneya12',
+    speakerDescription: 'gsocer',
+    start: '4:40 pm',
+    end: '5:00 pm',
+    title: 'community hub',
+    duration: '20',
+    youtube: 'coming',
+    year: 2024,
+  },
+  {
+    event: 'gsoc-alumni-summit2',
     speaker: 'anjaneya2',
     speakerDescription: 'gsocer',
     start: '4:40 pm',
