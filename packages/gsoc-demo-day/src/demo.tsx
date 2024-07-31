@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Suspense } from 'react'
 import { getLinks } from './api/index.js'
-import CarouselComponent from './demo-day-theme/carousel-component.js';
+import CarouselComponent from './demo-day-theme/card-component.jsx';
 
 
 
-const CarouselContent = async ({ cms, data, user }) => {
+const GsocDemoDayContent = async ({ data, user }) => {
   console.log(user);
   let events = data;
   const videoProperties = [
@@ -75,11 +75,10 @@ const CarouselContent = async ({ cms, data, user }) => {
   return <CarouselComponent data= {videoProperties}/>;
 };
 
-export const GsocDemoDay = ({ cms, data, user }) => (
+export const GsocDemoDay = ({ data, user }) => (
   <Suspense>
     {/* @ts-ignore: Async components are valid in the app directory */}
-    <CarouselContent
-      cms={cms}
+    <GsocDemoDayContent
       data={data}
       user={user}
     />

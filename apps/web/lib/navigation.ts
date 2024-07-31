@@ -1,4 +1,6 @@
-const navItems = [
+import { NavigationDataT } from "@anjy7/navbar-cms";
+
+const navItems : NavigationDataT = [
   {
     "type": "link",
     "link": "/",

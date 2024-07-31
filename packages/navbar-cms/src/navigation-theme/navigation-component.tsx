@@ -1,68 +1,69 @@
-"use client"
-import React from 'react';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import classNames from 'classnames';
-import { CaretDownIcon } from '@radix-ui/react-icons';
-import './style.css';
+'use client';
 
-const NavigationMenuDemo = ({ data }) => {
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { NavigationPropsT, NavigationMenuItemPropsT } from '../types';
+
+const Navigation = ({ data, container }: NavigationPropsT) => {
   return (
-    <NavigationMenu.Root className="NavigationMenuRoot">
-      <NavigationMenu.List className="NavigationMenuList">
-      <img src={'/logo.svg'} alt="My Image" height={200} width={200} className="logo"/>
-        {data.map((item) => (
-          <NavigationMenuItem key={item.id} item={item.link} />
-        ))}
-        <NavigationMenu.Indicator className="NavigationMenuIndicator">
-          <div className="Arrow" />
-        </NavigationMenu.Indicator>
-      </NavigationMenu.List>
-      <div className="ViewportPosition">
-        <NavigationMenu.Viewport className="NavigationMenuViewport" />
-      </div>
-    </NavigationMenu.Root>
+    <Navbar
+      expand='lg'
+      className='bg-body-tertiary'
+      style={container}
+    >
+      <Container>
+        <Navbar.Brand
+          href='/'
+          className=''
+        >
+          <img
+            src={'/logo.svg'}
+            alt='My Image'
+            height={200}
+            width={200}
+            className='logo'
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar.Collapse id='basic-navbar-nav'>
+          <Nav className='me-auto'>
+            {data.map((item: any) => (
+              <NavigationMenuItem
+                key={item.id}
+                item={item}
+              />
+            ))}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
-const NavigationMenuItem = ({ item }) => {
+const NavigationMenuItem = ({ item }: NavigationMenuItemPropsT) => {
   if (item.type === 'link') {
-    return (
-      <NavigationMenu.Item>
-        <NavigationMenu.Link className="NavigationMenuLink" href={item.link}>
-          {item.label}
-        </NavigationMenu.Link>
-      </NavigationMenu.Item>
-    );
+    return <Nav.Link href={item.link}>{item.label}</Nav.Link>;
   } else if (item.type === 'dropdown') {
     return (
-      <NavigationMenu.Item>
-        <NavigationMenu.Trigger className="NavigationMenuTrigger">
-          {item.label} <CaretDownIcon className="CaretDown" aria-hidden />
-        </NavigationMenu.Trigger>
-        <NavigationMenu.Content className="">
-          <ul className={`List ${item.label.toLowerCase()}`}>
-            {item.dropdown.map((dropdownItem, index) => (
-              <ListItem key={index} href={`${dropdownItem.url}`}  title={dropdownItem.label}>
-                {/* {dropdownItem.link} */}
-              </ListItem>
-            ))}
-          </ul>
-        </NavigationMenu.Content>
-      </NavigationMenu.Item>
+      <NavDropdown
+        title={item.label}
+        id={`dropdown-${item.id}`}
+      >
+        {item.dropdown.map((dropdownItem, index) => (
+          <NavDropdown.Item
+            key={index}
+            href={dropdownItem.link}
+          >
+            {dropdownItem.label}
+          </NavDropdown.Item>
+        ))}
+      </NavDropdown>
     );
   }
   return null;
 };
 
-const ListItem = React.forwardRef(({ className, children, title, ...props }, forwardedRef) => (
-  <li>
-    <NavigationMenu.Link asChild>
-      <a className={classNames('ListItemLink', className)} {...props} ref={forwardedRef}>
-        <div className="ListItemHeading">{title}</div>
-        <p className="ListItemText">{children}</p>
-      </a>
-    </NavigationMenu.Link>
-  </li>
-));
-
-export default NavigationMenuDemo;
+export default Navigation;

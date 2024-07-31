@@ -6,7 +6,6 @@ import "./globals.css";
 // import { getSession } from "../lib/session";
 
 // import { fetchNavData } from "@palanikannan1437/rc4community-navbar-demo/core";
-
 export default async function RootLayout({
   children,
 }: {
@@ -29,7 +28,7 @@ export default async function RootLayout({
           session={session}
           navData={navData}
           navItems={navItems}
-        /> */}
+          /> */}
         {/* <div className="flex min-h-screen items-center justify-center py-2"> */}
             {children}
         {/* </div> */}

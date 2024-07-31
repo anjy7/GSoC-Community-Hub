@@ -2,7 +2,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import * as React from 'react';
 import { Suspense } from 'react';
 import ProjectsComponent from './projects-theme/project-component.js';
-const CarouselContent = async ({ cms, data, user })=>{
+const GsocProjectsContent = async ({ data, user })=>{
     console.log(user);
     let events = data;
     const data1 = [
@@ -65,12 +65,11 @@ const CarouselContent = async ({ cms, data, user })=>{
     //   }
     //   console.log(events);
     return /*#__PURE__*/ _jsx(ProjectsComponent, {
-        data: data1
+        data: data
     });
 };
-export const GsocProjects = ({ cms, data, user })=>/*#__PURE__*/ _jsx(Suspense, {
-        children: /*#__PURE__*/ _jsx(CarouselContent, {
-            cms: cms,
+export const GsocProjects = ({ data, user })=>/*#__PURE__*/ _jsx(Suspense, {
+        children: /*#__PURE__*/ _jsx(GsocProjectsContent, {
             data: data,
             user: user
         })

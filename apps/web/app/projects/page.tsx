@@ -5,12 +5,14 @@ import {NavigationMenuDemo} from "@anjy7/navbar-cms"
 import navItems from "@lib/navigation"
 import events from '@lib/events';
 import user from '@lib/superprofile'
+import projects from '@lib/projects';
+
 export default async function Home() {
 
 
   return (
     <>
-    <NavigationMenuDemo container={{}} data={navItems}/>
+    <NavigationMenuDemo data={navItems}/>
     <div className=''>
     </div>
       <h1 className='text-center text-4xl font-bold text-[#030c1a] md:text-3xl p-4'>
@@ -20,7 +22,7 @@ export default async function Home() {
         <span >All of the projects are open source projects welcoming additional contributors. Please click on links below and start contributing!</span>
       </h1>
       {/* <Events cms={false} data={events} user={user}/> */}
-      <GsocProjects/>
+      <GsocProjects data={projects} user={user}/>
     </>
   );
 }

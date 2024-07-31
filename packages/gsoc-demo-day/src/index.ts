@@ -2,4 +2,4 @@
 export { p2pSchema } from './schema/p2pSchema.js';
 
 import "./styles.css"
-export * from './carousel.js'
+export * from './demo.jsx'

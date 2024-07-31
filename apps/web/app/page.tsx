@@ -1,11 +1,14 @@
 // import Navbar from "./events/Navbar"
 import {NavigationMenuDemo} from "@anjy7/navbar-cms";
 import navItems from "@lib/navigation"
+import GithubAuth from "@/components/githubAuth";
+
 export default function Home() {
+
   return (
     <>
-      <NavigationMenuDemo container={{}} data={navItems}/>
-      
+    <NavigationMenuDemo data={navItems} />
+    <GithubAuth />
       <div className='flex min-h-screen flex-col items-center justify-center py-2 text-black'>
         <main className='mx-auto w-auto px-4 pb-8 pt-8 sm:pt-8 lg:px-8'>
           <div className='container mx-auto flex flex-col items-center gap-3 px-4 md:gap-5'>
